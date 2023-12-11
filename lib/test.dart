@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 void main() => runApp(MaterialApp(
   home: Home(),
 ));
@@ -10,22 +9,23 @@ class Home extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: const Text("My third app", style: TextStyle(color: Colors.yellow)),
+        title: const Text('Buttons'),
         centerTitle: true,
-        backgroundColor: Colors.red[200],
+        backgroundColor: Colors.deepPurpleAccent,
       ),
-      body: const Center(
-      child: Text("We are doing this again",
-      style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 0, 20)),
+      body: Center(
+        //ElevatedButton, Textbutton, OutlineButton
+        child: IconButton(
+          onPressed: () {
+          print('You Clicked me');
+        },
+        icon: const Icon(Icons.home),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black,
+          foregroundColor: Color.fromARGB(255, 222, 222, 222),       
+          ),
+        )
       ),
-      ),
-      floatingActionButton: FloatingActionButton(
-      backgroundColor: Colors.red,
-      onPressed: () =>{
-        SystemNavigator.pop()
-      }, 
-      child: const Text('Exit', style: TextStyle(color: Colors.black))
-    ),
-    );
+      );
   }
 }
